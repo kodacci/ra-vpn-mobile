@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="40dp"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/mainActivityTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:letterSpacing="0.12"
+            android:shadowColor="@color/neon_cyan"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="24"
+            android:text="@string/main_activity_title"
+            android:textColor="@color/neon_cyan"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:letterSpacing="0.18"
+            android:text="@string/main_activity_subtitle"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_magenta"
+            android:textSize="11sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/neon_magenta"
+            android:alpha="0.7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/server_host_label"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_cyan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/serverHostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_neon_input"
+            android:fontFamily="monospace"
+            android:hint="@string/server_host_hint"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="@color/cyber_text"
+            android:textColorHint="@color/cyber_hint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/server_port_label"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_cyan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/serverPortInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_neon_input"
+            android:fontFamily="monospace"
+            android:hint="@string/server_port_hint"
+            android:inputType="number"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="@color/cyber_text"
+            android:textColorHint="@color/cyber_hint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/client_id_label"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_cyan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/clientIdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_neon_input"
+            android:fontFamily="monospace"
+            android:hint="@string/client_id_hint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="@color/cyber_text"
+            android:textColorHint="@color/cyber_hint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/cipher_key_label"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_cyan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/cipherKeyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_neon_input"
+            android:drawableEnd="@drawable/ic_visibility_off"
+            android:drawablePadding="8dp"
+            android:fontFamily="monospace"
+            android:hint="@string/cipher_key_hint"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="@color/cyber_text"
+            android:textColorHint="@color/cyber_hint" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/neon_magenta"
+            android:alpha="0.7" />
+
+        <Switch
+            android:id="@+id/proxySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/proxy_switch_label"
+            android:textAllCaps="true"
+            android:textColor="@color/cyber_text"
+            android:textSize="13sp"
+            android:thumbTint="@color/neon_cyan"
+            android:trackTint="@color/neon_magenta" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/proxy_host_label"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_cyan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/proxyHostInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_neon_input"
+            android:fontFamily="monospace"
+            android:hint="@string/proxy_host_hint"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="@color/cyber_text"
+            android:textColorHint="@color/cyber_hint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/proxy_port_label"
+            android:textAllCaps="true"
+            android:textColor="@color/neon_cyan"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/proxyPortInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_neon_input"
+            android:fontFamily="monospace"
+            android:hint="@string/proxy_port_hint"
+            android:inputType="number"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="@color/cyber_text"
+            android:textColorHint="@color/cyber_hint" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="28dp" />
+
+        <Switch
+            android:id="@+id/transportSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:text="@string/tcp"
+            android:textAllCaps="true"
+            android:textColor="@color/cyber_text"
+            android:textSize="13sp"
+            android:thumbTint="@color/neon_cyan"
+            android:trackTint="@color/neon_magenta" />
+
+        <Button
+            android:id="@+id/connectButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="48dp"
+            android:background="@drawable/bg_neon_button"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.2"
+            android:shadowColor="@color/neon_magenta"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="18"
+            android:textAllCaps="true"
+            android:textColor="@color/cyber_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

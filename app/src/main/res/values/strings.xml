@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">RA-ITech VPN</string>
+    <string name="main_activity_title">RA-ITech VPN</string>
+    <string name="main_activity_subtitle">// SECURE TUNNEL · NETRUNNER</string>
+    <string name="connect_button_connect_title">Connect</string>
+    <string name="connect_button_disconnect_title">Disconnect</string>
+    <string name="virtual_ip_title">VirtualIP</string>
+    <string name="tcp">TCP</string>
+    <string name="udp">UDP</string>
+    <string name="server_host_label">Server address</string>
+    <string name="server_host_hint">vpn.example.com</string>
+    <string name="server_port_label">Server port</string>
+    <string name="server_port_hint">9867</string>
+    <string name="client_id_label">Client ID</string>
+    <string name="client_id_hint">client-id</string>
+    <string name="cipher_key_label">Cipher key (Base64)</string>
+    <string name="cipher_key_hint">Base64 AES key</string>
+    <string name="proxy_switch_label">Use proxy</string>
+    <string name="proxy_host_label">Proxy address</string>
+    <string name="proxy_host_hint">proxy.example.com</string>
+    <string name="proxy_port_label">Proxy port</string>
+    <string name="proxy_port_hint">9867</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_screen</item>
+        <item name="android:colorBackground">@color/cyber_bg</item>
+        <item name="android:colorPrimary">@color/neon_magenta</item>
+        <item name="android:colorAccent">@color/neon_cyan</item>
+        <item name="android:textColorPrimary">@color/cyber_text</item>
+        <item name="android:textColorSecondary">@color/cyber_hint</item>
+        <item name="android:textColorHint">@color/cyber_hint</item>
+        <item name="android:statusBarColor">@color/cyber_bg</item>
+        <item name="android:navigationBarColor">@color/cyber_bg</item>
+    </style>
+</resources>
