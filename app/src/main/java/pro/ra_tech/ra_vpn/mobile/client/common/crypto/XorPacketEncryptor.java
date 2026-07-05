@@ -16,18 +16,20 @@ public class XorPacketEncryptor extends BaseEncryptor {
         System.arraycopy(SIGNATURE, 0, dst, 0, SIGNATURE.length);
 
         val src = packet.getPayload().toBytes();
-        dst[SIGNATURE.length] = (byte) (packet.getType().getCode() ^ XOR_KEY);
+        dst[VERSION_OFFSET] = XOR_KEY;
+        dst[VERSION_OFFSET + 1] = (byte) (1 ^ XOR_KEY);
+        dst[TYPE_OFFSET] = (byte) (packet.getType().getCode() ^ XOR_KEY);
 
-        for (int i = SIGNATURE.length + 1, j = 0; j < src.length; ++i, ++j) {
+        for (int i = PAYLOAD_OFFSET, j = 0; j < src.length; ++i, ++j) {
             dst[i] = (byte) (src[j] ^ XOR_KEY);
         }
 
-        return Unpooled.wrappedBuffer(dst, 0, SIGNATURE.length + src.length + 1);
+        return Unpooled.wrappedBuffer(dst, 0, PAYLOAD_OFFSET + src.length);
     }
 
     @Override
     public VpnPacket decrypt(byte[] data, int size) {
-        for (int i = SIGNATURE.length; i < size; ++i) {
+        for (int i = VERSION_OFFSET; i < size; ++i) {
             data[i] = (byte) (data[i] ^ XOR_KEY);
         }
 

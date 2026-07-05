@@ -2,6 +2,7 @@ package pro.ra_tech.ra_vpn.mobile.client.common.crypto;
 
 import static pro.ra_tech.ra_vpn.mobile.client.common.Constants.MAX_PACKET_SIZE;
 import static pro.ra_tech.ra_vpn.mobile.client.common.Constants.SIGNATURE;
+import static pro.ra_tech.ra_vpn.mobile.client.common.Constants.VERSION_LENGTH;
 
 import io.netty.channel.socket.DatagramPacket;
 import lombok.AccessLevel;
@@ -22,7 +23,9 @@ import java.util.Arrays;
 
 @Slf4j
 public abstract class BaseEncryptor implements PacketEncryptor {
-    protected static final int TYPE_OFFSET = SIGNATURE.length;
+    protected static final int VERSION_OFFSET = SIGNATURE.length;
+    protected static final int TYPE_OFFSET = VERSION_OFFSET + VERSION_LENGTH;
+    protected static final int PAYLOAD_OFFSET = TYPE_OFFSET + 1;
 
     @Getter(AccessLevel.PROTECTED)
     private final byte[] buffer = new byte[MAX_PACKET_SIZE];
@@ -53,11 +56,17 @@ public abstract class BaseEncryptor implements PacketEncryptor {
             throw new IllegalArgumentException("Bad vpn signature");
         }
 
-        val type = VpnPacketType.of(raw[TYPE_OFFSET]);
-        val payloadOffset = TYPE_OFFSET + 1;
-        val length = size - payloadOffset;
+        val version = ((raw[VERSION_OFFSET] << 8) & 0xFF) + (raw[VERSION_OFFSET + 1] & 0xFF);
+        if (version != 1) {
+            log.warn("Unexpected VPN protocol version {}", version);
 
-        return parsePayload(type, raw, payloadOffset, length);
+            throw new IllegalArgumentException("Bad version number: " + version);
+        }
+
+        val type = VpnPacketType.of(raw[TYPE_OFFSET]);
+        val length = size - PAYLOAD_OFFSET;
+
+        return parsePayload(type, raw, PAYLOAD_OFFSET, length);
     }
 
     protected VpnPacket parseRawHeadless(byte[] raw, int size) {
