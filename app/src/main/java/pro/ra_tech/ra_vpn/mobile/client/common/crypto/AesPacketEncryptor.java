@@ -24,7 +24,7 @@ public class AesPacketEncryptor extends BaseEncryptor {
     private static final String ALGORITHM = "AES/GCM/NoPadding";
     public static final String KEY_ALGORITHM = "AES";
 
-    private static final int IV_OFFSET = SIGNATURE.length + 1;
+    private static final int IV_OFFSET = TYPE_OFFSET + 1;
 
     private final SecureRandom random = new SecureRandom();
     private final byte[] iv = new byte[IV_SIZE];
@@ -47,8 +47,11 @@ public class AesPacketEncryptor extends BaseEncryptor {
             val buffer = getBuffer();
             // Signature
             System.arraycopy(SIGNATURE, 0, buffer, 0, SIGNATURE.length);
+            // Protocol version
+            buffer[VERSION_OFFSET] = 0;
+            buffer[VERSION_OFFSET + 1] = 1;
             // Packet type
-            buffer[SIGNATURE.length] = packet.getType().getCode();
+            buffer[TYPE_OFFSET] = packet.getType().getCode();
             // IV
             random.nextBytes(iv);
             System.arraycopy(iv, 0, buffer, IV_OFFSET, iv.length);
@@ -58,7 +61,7 @@ public class AesPacketEncryptor extends BaseEncryptor {
             val src = packet.getPayload().toBytes();
             val size = cipher.doFinal(src, 0, src.length, buffer, IV_OFFSET + iv.length);
 
-            return Unpooled.wrappedBuffer(buffer, 0, SIGNATURE.length + 1 + size + iv.length);
+            return Unpooled.wrappedBuffer(buffer, 0, PAYLOAD_OFFSET + size + iv.length);
         } catch(Exception ex) {
             throw new PacketEncryptException("Error encrypting VPN packet", ex);
         }
